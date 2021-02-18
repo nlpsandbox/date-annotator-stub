@@ -20,7 +20,7 @@ OpenAPI specification of the NLP Sandbox Date Annotator API
 expect much from it as this API service will return the string "do some magic!"
 to all the requests it receives!
 
-**Important**: The Docker image built using the CI/CD workflow of this
+> **Important**: The Docker image built using the CI/CD workflow of this
 repository is used as part of the documentation of the [nlpsandbox.io]. Please
 visit this website for more information and actual example implementations of
 this annotator.
