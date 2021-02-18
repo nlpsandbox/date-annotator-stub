@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  date-annotator:
+  date-annotator-stub:
     image: nlpsandbox/date-annotator-stub:latest
-    build:
-      context: server
-      dockerfile: Dockerfile
+    # build:
+    #   context: server
+    #   dockerfile: Dockerfile
     container_name: date-annotator-stub
     networks:
       - nlp-sandbox
