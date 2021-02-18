@@ -11,18 +11,19 @@ Python-Flask stub for the [NLP Sandbox Date Annotator API]
 ## Overview
 
 This repository contains a Python-Flask stub for the [NLP Sandbox Date Annotator
-API]. The Date Annotator is one of the first NLP Tools that can be benchmarked
-on [nlpsandbox.io]. A Date Annotator takes as input a clinical note and outputs
-a list of predicted date annotations found in the clinical note.
+API]. A Date Annotator takes as input a clinical note and outputs a list of
+predicted date annotations found in the clinical note.
 
 The stub available in the folder [server](server/) has been generated from the
 OpenAPI specification of the NLP Sandbox Date Annotator API
-([openapi.json](openapi.json)) using the [OpenAPI generator].
+([openapi.json](openapi.json)) using the [OpenAPI generator] -- just don't
+expect much from it as this API service will return the string "do some magic!"
+to all the requests it receives!
 
 **Important**: The Docker image built using the CI/CD workflow of this
 repository is used as part of the documentation of the [nlpsandbox.io]. Please
-visit the GitHub repository [nlpsandbox/nlpsandbox-schemas] for more information
-and actual example implementations of this annotator.
+visit this website for more information and actual example implementations of
+this annotator.
 
 ## Usage
 
@@ -43,6 +44,15 @@ Install the generator:
 (Re-)generate the content of the folder *server/*:
 
     npm run generate:server
+
+### Running with Docker
+
+This command will start this API service stub:
+
+    docker-compose up --build
+
+The web interface of this API service will be available at
+http://localhost:8080/api/v1/ui.
 
 ## License
 
