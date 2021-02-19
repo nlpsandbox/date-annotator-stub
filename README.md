@@ -46,7 +46,8 @@ Install the generator:
 
     npm ci
 
-(Re-)generate the content of the folder *server/*:
+(Re-)generate the content of the folder *server/* based on the latest OpenAPI
+specification of the NLP Sandbox Date Annotator:
 
     npm run generate:server
 

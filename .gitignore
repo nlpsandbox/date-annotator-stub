@@ -2,8 +2,6 @@
 .vscode/
 node_modules/
 
-/openapi.yaml
-
 .env
 dist.yaml
 openapitools.json
