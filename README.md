@@ -1,6 +1,6 @@
 # NLP Sandbox Date Annotator Stub
 
-[![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-stub.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/releases)
+<!-- [![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-stub.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/releases) -->
 [![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-stub/ci.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/actions)
 [![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-stub.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/blob/develop/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nlpsandbox/date-annotator-stub.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/nlpsandbox/date-annotator-stub)
@@ -24,6 +24,11 @@ to all the requests it receives!
 repository is used as part of the documentation of the [nlpsandbox.io]. Please
 visit this website for more information and actual example implementations of
 this annotator.
+
+### Specification
+
+- Date Annotator API version: 1.0.0
+- Docker image: [nlpsandbox/date-annotator-example]
 
 ## Usage
 
