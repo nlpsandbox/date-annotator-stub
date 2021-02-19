@@ -28,7 +28,7 @@ this annotator.
 ### Specification
 
 - Date Annotator API version: 1.0.0
-- Docker image: [nlpsandbox/date-annotator-example]
+- Docker image: [nlpsandbox/date-annotator-stub]
 
 ## Usage
 
@@ -71,3 +71,4 @@ http://localhost:8080/api/v1/ui.
 [Apache License 2.0]: https://github.com/nlpsandbox/date-annotator-stub/blob/develop/LICENSE
 [OpenAPI Generator]: https://github.com/OpenAPITools/openapi-generator
 [OpenAPITools/openapi-generator]: https://github.com/OpenAPITools/openapi-generator
+[nlpsandbox/date-annotator-stub]: https://hub.docker.com/r/nlpsandbox/date-annotator-stub
