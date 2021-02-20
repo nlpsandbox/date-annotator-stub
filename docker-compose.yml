@@ -10,7 +10,7 @@ services:
     networks:
       - nlp-sandbox
     ports:
-      - "8080:8080"
+      - "80:8080"
 
 networks:
   nlp-sandbox:
