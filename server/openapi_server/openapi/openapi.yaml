@@ -1,24 +1,34 @@
 openapi: 3.0.3
 info:
   contact:
-    email: thomas.schaffter@sagebionetworks.org
-    name: The NLP Sandbox Team
+    email: team@nlpsandbox.io
+    name: NLP Sandbox Team
     url: https://nlpsandbox.io
   description: |
-    # Overview
+    # Introduction
+    A Date Annotator takes as input a clinical note and outputs a list of predicted date annotations found in the clinical note. This OpenAPI document describes the specification of a Date Annotator. This specification includes the schemas of the input and output data, and the conditions that this annotator must meet if you want to benchmark its performance on [nlpsandbox.io](https://nlpsandbox.io).
+    # Getting Started
+    The GitHub repository [nlpsandbox/date-annotator-example](https://github.com/nlpsandbox/date-annotator-example) provides a simple example implementation of a Python-Flask Date Annotator. By the end of the tutorial available in the README, you will have built a Docker image for a simple Date Annotator. You will then be able to submit this image to [nlpsandbox.io](https://nlpsandbox.io) to benchmark its performance.
+    # Benchmarking Requirements
+    Your NLP Sandbox tool must meet the following conditions before evaluating its performance on [nlpsandbox.io](https://nlpsandbox.io).
+    - The endpoint `/` must redirect to `/api/v1/tool`.
+    - The endpoint `/ui` must redirect to the web interface (UI).
+    - The output of this tool must be reproducible: a given input should always
+      generate the same output.
 
-    This NLP tool detects references of dates in the clinical note given as
-    input and returns a list of date annotations.
+    - To ensure the results are reproducible and robust, and the data are
+      secured, this tool must not connect to any remote server. When benchmarked
+      on [nlpsandbox.io](https://nlpsandbox.io), this tool will not be able to
+      connect to remote servers.
 
     # Examples
-
-    - [NLP Sandbox Date Annotator (Python)](https://github.com/nlpsandbox/date-annotator-example)
-    - [NLP Sandbox Date Annotator (Java)](https://github.com/nlpsandbox/date-annotator-example-java)
+    - [Date Annotator Example (Python)](https://github.com/nlpsandbox/date-annotator-example)
+    - [Date Annotator Example (Java)](https://github.com/nlpsandbox/date-annotator-example-java)
   license:
     name: Apache 2.0
     url: https://github.com/nlpsandbox/nlpsandbox-schemas/blob/develop/LICENSE
   title: NLP Sandbox Date Annotator API
-  version: 1.0.0
+  version: 1.1.1
   x-logo:
     url: https://nlpsandbox.github.io/nlpsandbox-schemas/logo.png
 servers:
@@ -224,7 +234,7 @@ components:
       example:
         identifier: awesome-note
         text: On 12/26/2020, Ms. Chloe Price met with Dr. Prescott in Seattle.
-        noteType: loinc:LP29684-5
+        type: loinc:LP29684-5
         patientId: awesome-patient
       properties:
         identifier:
@@ -237,7 +247,7 @@ components:
         text:
           description: The content of the clinical note
           type: string
-        noteType:
+        type:
           description: The note type (LOINC concept)
           type: string
         patientId:
@@ -249,9 +259,9 @@ components:
           type: string
       required:
       - identifier
-      - noteType
       - patientId
       - text
+      - type
       type: object
     TextDateAnnotationRequest:
       description: A request to annotate dates in a clinical note
@@ -259,7 +269,7 @@ components:
         note:
           identifier: awesome-note
           text: On 12/26/2020, Ms. Chloe Price met with Dr. Prescott in Seattle.
-          noteType: loinc:LP29684-5
+          type: loinc:LP29684-5
           patientId: awesome-patient
       properties:
         note:
@@ -389,8 +399,8 @@ components:
         author: Awesome Team
         authorEmail: author@example.com
         url: https://example.com
-        toolType: nlpsandbox:date-annotator
-        toolApiVersion: 1.0.0
+        type: nlpsandbox:date-annotator
+        apiVersion: 1.1.1
       properties:
         name:
           description: The tool name
@@ -423,34 +433,34 @@ components:
           description: The URL to the homepage of the tool
           format: uri
           type: string
-        toolType:
+        type:
           description: The type of this tool
           example: nlpsandbox:date-annotator
           maxLength: 60
           minLength: 3
           pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*(:)[a-z0-9]+(?:-[a-z0-9]+)*$
           type: string
-        toolApiVersion:
+        apiVersion:
           description: The version of the tool OpenAPI specification
           minLength: 1
           pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
           type: string
       required:
+      - apiVersion
       - author
       - authorEmail
       - description
       - license
       - name
       - repository
-      - toolApiVersion
-      - toolType
+      - type
       - url
       - version
       type: object
     ToolDependencies:
       description: A list of tool dependencies
       example:
-        toolDependencies:
+        tools:
         - name: awesome-nlp-tool
           version: 1.0.6
           license: apache-2.0
@@ -459,8 +469,8 @@ components:
           author: Awesome Team
           authorEmail: author@example.com
           url: https://example.com
-          toolType: nlpsandbox:date-annotator
-          toolApiVersion: 1.0.0
+          type: nlpsandbox:date-annotator
+          apiVersion: 1.1.1
         - name: awesome-nlp-tool
           version: 1.0.6
           license: apache-2.0
@@ -469,16 +479,16 @@ components:
           author: Awesome Team
           authorEmail: author@example.com
           url: https://example.com
-          toolType: nlpsandbox:date-annotator
-          toolApiVersion: 1.0.0
+          type: nlpsandbox:date-annotator
+          apiVersion: 1.1.1
       properties:
-        toolDependencies:
+        tools:
           description: A list of tools
           items:
             $ref: '#/components/schemas/Tool'
           type: array
       required:
-      - toolDependencies
+      - tools
       type: object
     TextDateAnnotation_allOf:
       properties:
