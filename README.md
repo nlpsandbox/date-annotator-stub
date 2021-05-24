@@ -58,7 +58,7 @@ This command will start this API service stub:
     docker-compose up --build
 
 The web interface of this API service will be available at
-http://localhost:8080/api/v1/ui.
+http://localhost/api/v1/ui.
 
 ## License
 
