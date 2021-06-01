@@ -4,7 +4,9 @@ on:
   schedule:
     - cron: '0 10 * * *' # everyday at 10am
     # - cron: '0 0 * * 0'  # At 00:00 every Sunday
-
+  push:
+    branches:
+      - add-ci-update
 env:
   node_version: 12.x
 
@@ -30,20 +32,16 @@ jobs:
         run: |
           npm ci
           npm run generate:server:latest
-          # TODO: Update version in README and docker-compose.yml
 
-          # source .env
-          # cur_ver="$ELK_VERSION"
-          # new_ver=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}
+          cur_ver=`grep nlpsandbox/date-annotator-stub docker-compose.yml | sed 's/image: nlpsandbox\/date-annotator-stub://'`
+          new_ver=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}
 
-          # # Escape dot characters so sed interprets them as literal dots
-          # cur_ver="$(echo $cur_ver | sed 's/\./\\./g')"
-          # # Trim leading 'v' in semantic version
-          # new_ver="${new_ver:1}"
+          # Escape dot characters so sed interprets them as literal dots
+          cur_ver="$(echo $cur_ver | sed 's/\./\\./g')"
 
-          # for f in docker-compose.yml README.md; do
-          #   sed -i "s/${cur_ver}/${new_ver}/g" "$f"
-          # done
+          for f in docker-compose.yml README.md; do
+            sed -i "s/${cur_ver}/${new_ver}/g" "$f"
+          done
 
       - name: Send pull request to update to new version
         uses: peter-evans/create-pull-request@v3
