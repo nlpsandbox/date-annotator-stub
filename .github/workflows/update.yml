@@ -12,7 +12,7 @@ env:
 
 jobs:
   check-and-update:
-    name: Check and update Elastic release
+    name: Check and update date annotator stub
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
