@@ -33,7 +33,7 @@ jobs:
           npm ci
           npm run generate:server:latest
 
-          cur_ver=`grep nlpsandbox/date-annotator-stub docker-compose.yml | sed 's/image: nlpsandbox\/date-annotator-stub://'`
+          cur_ver=`grep nlpsandbox/date-annotator-stub docker-compose.yml | sed 's/    image: nlpsandbox\/date-annotator-stub://'`
           new_ver=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}
 
           # Escape dot characters so sed interprets them as literal dots
