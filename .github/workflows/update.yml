@@ -30,6 +30,8 @@ jobs:
           node-version: ${{ env.node_version }}
       - name: Update date annotator stub
         run: |
+          # Remove server folder so that everything is recreated
+          rm -rf server
           npm ci
           npm run generate:server:latest
 
