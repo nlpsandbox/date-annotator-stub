@@ -1,41 +1,97 @@
+[![nlpsandbox.io](https://nlpsandbox.github.io/nlpsandbox-themes/banner/Banner@3x.png)](https://nlpsandbox.io)
+
 # NLP Sandbox Date Annotator Stub
 
-<!-- [![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-stub.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/releases) -->
-[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-stub/ci.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/actions)
-[![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-stub.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-stub/blob/develop/LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/nlpsandbox/date-annotator-stub.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/nlpsandbox/date-annotator-stub)
-[![Discord](https://img.shields.io/discord/770484164393828373.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Discord&logo=discord)](https://discord.gg/Zb4ymtF "Realtime support / chat with the community and the team")
+[![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-example.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/releases)
+[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/actions)
+[![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-example.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/blob/develop/LICENSE)
+[![Docker](https://img.shields.io/badge/docker-blue.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=nlpsandbox&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMy4yIDcuOS0xLjctMXYxMS40bDkuOSA1LjdWMTIuNkw1LjYgOS4zIDMuMiA3Ljl6bTE3LjEtMS4zIDEuNS0uOUwxMiAwIDIuMiA1LjdsMi42IDEuNS4xLjEgMS43IDEgNS41IDMuMiA1LjEtMyAzLjEtMS45ek0xMiA5LjUgOS4zIDcuOSA3LjQgNi44bC0xLjctMS0uMS0uMWgtLjFMMTIgMS45bDYuNSAzLjhMMTYuMyA3IDEyIDkuNXptOC44LTEuNi0yLjQgMS40LS41LjItNS4zIDMuMVYyNGw5LjktNS43VjYuOWwtMS43IDF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)](https://hub.docker.com/repository/docker/nlpsandbox/date-annotator-stub "Get the Docker image of this tool on NLPSandbox.io")
+[![Leaderboard](https://img.shields.io/badge/leaderboard-blue.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=nlpsandbox&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMy4yIDcuOS0xLjctMXYxMS40bDkuOSA1LjdWMTIuNkw1LjYgOS4zIDMuMiA3Ljl6bTE3LjEtMS4zIDEuNS0uOUwxMiAwIDIuMiA1LjdsMi42IDEuNS4xLjEgMS43IDEgNS41IDMuMiA1LjEtMyAzLjEtMS45ek0xMiA5LjUgOS4zIDcuOSA3LjQgNi44bC0xLjctMS0uMS0uMWgtLjFMMTIgMS45bDYuNSAzLjhMMTYuMyA3IDEyIDkuNXptOC44LTEuNi0yLjQgMS40LS41LjItNS4zIDMuMVYyNGw5LjktNS43VjYuOWwtMS43IDF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)](https://www.synapse.org/#!Synapse:syn22277123/wiki/608544 "View the performance of this tool on NLPSandbox.io")
+[![Discord](https://img.shields.io/discord/770484164393828373.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Discord&logo=discord)](https://nlpsandbox.io/discord "Realtime support / chat with the community and the team")
 
-Python-Flask stub for the [NLP Sandbox Date Annotator API]
+## Introduction
 
-## Overview
+[NLPSandbox.io] is an open platform for benchmarking modular natural language
+processing (NLP) tools on both public and private datasets. Academics, students,
+and industry professionals are invited to browse the available tasks and
+participate by developing and submitting an NLP Sandbox tool.
 
 This repository contains a Python-Flask stub for the [NLP Sandbox Date Annotator
-API]. A Date Annotator takes as input a clinical note and outputs a list of
+API]. A date annotator takes as input a clinical note and outputs a list of
 predicted date annotations found in the clinical note.
 
-The stub available in the folder [server](server/) has been generated from the
-OpenAPI specification of the NLP Sandbox Date Annotator API
-([openapi.json](openapi.json)) using the [OpenAPI generator] -- just don't
-expect much from it as this API service will return the string "do some magic!"
-to all the requests it receives!
+The stub available in the folder [server](server/) has been automatically
+generated using the [openapi-generator] and the OpenAPI specification of the
+[NLP Sandbox Date Annotator API].
 
-> **Important**: The Docker image built using the CI/CD workflow of this
-repository is used as part of the documentation of the [nlpsandbox.io]. Please
-visit this website for more information and actual example implementations of
-this annotator.
+Python-Flask stubs generated with the [openapi-generator] return the string "do
+some magic!" to all the requests they receive. It is then up to an NLP developer
+to complete existing functions - one per endpoint - so that this NLP Sandbox
+tool returns meaningful information.
 
-### Specification
+A complete example of an NLP Sandbox data annotator is available in the GitHub
+repository [nlpsandbox/date-annotator-example].
 
-- Date Annotator API version: 1.1.2
-- Docker image: [nlpsandbox/date-annotator-stub]
+
+## Specification
+
+- NLP Sandbox schemas version: 1.1.2
+- NLP Sandbox tool stub version: 1.1.2
+- Docker image: [docker.synapse.org/syn22277123/date-annotator-stub]
+
+
+## Requirements
+
+- [Docker Engine] >=19.03.0
+
 
 ## Usage
 
+### Running with Docker
+
+The command below starts this NLP Sandbox date annotator locally.
+
+```console
+docker compose up --build
+```
+
+You can stop the container run with `Ctrl+C`, followed by `docker compose down`.
+
+### Running with Python
+
+Create a Conda environment.
+
+```console
+conda create --name date-annotator python=3.9
+conda activate date-annotator
+```
+
+Install and start this NLP Sandbox date annotator.
+
+```console
+cd server && pip install -r requirements.txt
+python -m openapi_server
+```
+
+### Accessing this NLP Sandbox tool User Interface
+
+This NLP Sandbox tool provides a web interface that you can use to annotate
+clinical notes. This web client has been automatically generated by
+[openapi-generator]. To access the UI, open a new tab in your browser and
+navigate to one of the following address depending on whether you are running
+the tool using Docker (production) or Python (development).
+
+- Using Docker: http://localhost/ui
+- Using Python: http://localhost:8080/ui
+
+
+
+## Generating this stub
+
 ### Requirements
 
-- [Node JS](https://nodejs.org/)
-- Java (required by [OpenAPITools/openapi-generator])
+- [Node] >=14
+- [Java] >=1.8 (required by [openapi-generator])
 
 ### Generating this stub
 
@@ -44,21 +100,48 @@ generator to use and provides an utility function to run the generator.
 
 Install the generator:
 
-    npm ci
+```console
+npm ci
+```
 
 (Re-)generate the content of the folder *server/* based on the latest OpenAPI
 specification of the [NLP Sandbox Date Annotator API]:
 
-    npm run generate:server
+```console
+npm run generate:server
+```
 
-### Running with Docker
 
-This command will start this API service stub:
+## Versioning
 
-    docker-compose up --build
+### GitHub release tags
 
-The web interface of this API service will be available at
-http://localhost/api/v1/ui.
+This repository uses [semantic versioning] to track the releases of this tool.
+This repository uses "non-moving" GitHub tags, that is, a tag will always point
+to the same git commit once it has been created.
+
+### Docker image tags
+
+The artifact published by the [CI/CD workflow] of this GitHub repository is a
+Docker image pushed to the Synapse Docker Registry. This table lists the image
+tags pushed to the registry.
+
+| Tag name                    | Moving | Description
+|-----------------------------|--------|------------
+| `latest`                    | Yes    | Latest stable release.
+| `edge`                      | Yes    | Latest commit made to the default branch.
+| `edge-<sha>`                | No     | Same as above with the reference to the git commit.
+| `<major>.<minor>.<patch>`   | No     | Stable release.
+
+You should avoid using a moving tag like `latest` when deploying containers in
+production, because this makes it hard to track which version of the image is
+running and hard to roll back.
+
+
+## Benchmarking on NLPSandbox&#46;io
+
+Visit [nlpsandbox.io] for instructions on how to submit your NLP Sandbox tool
+and evaluate its performance.
 
 ## License
 
@@ -66,10 +149,13 @@ http://localhost/api/v1/ui.
 
 <!-- Links -->
 
+[nlpsandbox/date-annotator-stub]: https://hub.docker.com/repository/docker/nlpsandbox/date-annotator-stub
+[NLPSandbox.io]: https://www.synapse.org/nlpsandbox
+[openapi-generator]: https://github.com/OpenAPITools/openapi-generator
+[Apache License 2.0]: https://github.com/nlpsandbox/date-annotator-stub/blob/main/LICENSE
+[Docker Engine]: https://docs.docker.com/engine/install/
+[Node]: https://nodejs.org/en/
+[Java]: https://www.java.com/en/download/help/download_options.html
+[CI/CD workflow]: .github/workflows/ci.yml
 [NLP Sandbox Date Annotator API]: https://nlpsandbox.github.io/nlpsandbox-schemas/date-annotator/latest/docs/
-[nlpsandbox.io]: https://nlpsandbox.io
-[nlpsandbox/nlpsandbox-schemas]: https://github.com/nlpsandbox/nlpsandbox-schemas
-[Apache License 2.0]: https://github.com/nlpsandbox/date-annotator-stub/blob/develop/LICENSE
-[OpenAPI Generator]: https://github.com/OpenAPITools/openapi-generator
-[OpenAPITools/openapi-generator]: https://github.com/OpenAPITools/openapi-generator
-[nlpsandbox/date-annotator-stub]: https://hub.docker.com/r/nlpsandbox/date-annotator-stub
+[semantic versioning]: https://semver.org/
