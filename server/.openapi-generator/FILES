@@ -26,6 +26,7 @@ openapi_server/models/text_date_annotation_request.py
 openapi_server/models/text_date_annotation_response.py
 openapi_server/models/tool.py
 openapi_server/models/tool_dependencies.py
+openapi_server/models/tool_type.py
 openapi_server/openapi/openapi.yaml
 openapi_server/test/__init__.py
 openapi_server/test/test_health_check_controller.py

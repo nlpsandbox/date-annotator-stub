@@ -27,7 +27,7 @@ this annotator.
 
 ### Specification
 
-- Date Annotator API version: 1.1.2
+- Date Annotator API version: 1.2.0
 - Docker image: [nlpsandbox/date-annotator-stub]
 
 ## Usage
